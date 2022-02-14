@@ -82,7 +82,7 @@ ranges.forEach(range => {
         totalPointsEl.innerText = MAX_POINTS - totalPoints + '';
         if (MAX_POINTS - totalPoints === 0) {
             totalPointsEl.innerText = '0';
-            ranges.forEach(r => r.disabled = true);
+            ranges.forEach(r => r.classList.add('disabled'));
             activateSubmitBtn(false);
         } else if (MAX_POINTS - totalPoints < 0) {
             activateSubmitBtn(true);
@@ -91,4 +91,9 @@ ranges.forEach(range => {
     });
 });
 
-resetPointsBtn.addEventListener('click', () => document.location.reload(true));
+resetPointsBtn.addEventListener('click', () => {
+    ranges.forEach(r => {
+        r.classList.remove('disabled');
+        r.value = '1';
+    });
+});

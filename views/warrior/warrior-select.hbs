@@ -1,12 +1,12 @@
 <div>
     {{#if warriors}}
         <h1>Wybierz dwóch wojowników którzy stoczą epicką walkę na arenie</h1>
-        <form action="/warrior" method="">
+        <form action="/arena" method="POST">
             <label>
                 Pierwszy wojownik:
                 <select name="warrior1">
                     {{#each warriors}}
-                        <option value="{{this.name}}">{{this.name}}</option>
+                        <option value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
                 </select>
             </label>
@@ -14,7 +14,7 @@
                 Drugi Wojownik:
                 <select name="warrior2">
                     {{#each warriors}}
-                        <option value="{{this.name}}">{{this.name}}</option>
+                        <option value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
                 </select>
             </label>
