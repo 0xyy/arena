@@ -8,47 +8,47 @@ const formEl = document.querySelector('form');
 
 const MAX_POINTS = 10;
 
-formEl.addEventListener('submit', async (e) => {
-    try {
-        e.preventDefault();
-        errorEl.textContent = '';
-
-        const name = nameInput.value;
-
-        if (!name) {
-            errorEl.textContent = 'Bez imienia cię nie przepuścimy!';
-        } else if (name.length < 3) {
-            errorEl.textContent = 'Imię wojownika musi być dłuższe niż 2 znaki';
-        } else if (name.length > 20) {
-            errorEl.textContent = 'Imię wojownika nie może być dłuższe niż 20 znaków';
-        } else {
-            const obj = {
-                name,
-                stats: {
-                    power: +ranges[0].value,
-                    defense: +ranges[1].value,
-                    durability: +ranges[2].value,
-                    agility: +ranges[3].value,
-                },
-            };
-
-            const res = await fetch('/warrior', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify(obj),
-            });
-
-            const warriorName = await res.json();
-            alert(`Gratulacje stworzyłeś swojego wojownika o imieniu ${warriorName}! Pora wrócić na rynek.`);
-            window.location.reload(true);
-        }
-    } catch (err) {
-        console.log(err);
-    }
-});
+// formEl.addEventListener('submit', async (e) => {
+//     try {
+//         e.preventDefault();
+//         errorEl.textContent = '';
+//
+//         const name = nameInput.value;
+//
+//         if (!name) {
+//             errorEl.textContent = 'Bez imienia cię nie przepuścimy!';
+//         } else if (name.length < 3) {
+//             errorEl.textContent = 'Imię wojownika musi być dłuższe niż 2 znaki';
+//         } else if (name.length > 20) {
+//             errorEl.textContent = 'Imię wojownika nie może być dłuższe niż 20 znaków';
+//         } else {
+//             const obj = {
+//                 name,
+//                 stats: {
+//                     power: +ranges[0].value,
+//                     defense: +ranges[1].value,
+//                     durability: +ranges[2].value,
+//                     agility: +ranges[3].value,
+//                 },
+//             };
+//
+//             const res = await fetch('/warrior', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Accept': 'application/json',
+//                 },
+//                 body: JSON.stringify(obj),
+//             });
+//
+//             const warriorName = await res.json();
+//             alert(`Gratulacje stworzyłeś swojego wojownika o imieniu ${warriorName}! Pora wrócić na rynek.`);
+//             window.location.reload(true);
+//         }
+//     } catch (err) {
+//         console.log(err);
+//     }
+// });
 
 const activateSubmitBtn = value => submitBtn.disabled = value;
 

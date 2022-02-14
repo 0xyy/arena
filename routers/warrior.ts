@@ -8,11 +8,11 @@ warriorRouter
 
     .post('/', async (req, res) => {
         const data = req.body;
-
-        const newWarrior = new WarriorRecord(data);
-        await newWarrior.insert();
-
-        res.json(req.body.name);
+        console.log(data);
+        // const newWarrior = new WarriorRecord(data);
+        // await newWarrior.insert();
+        //
+        // res.json(req.body.name);
     })
 
     .get('/select', async (req, res) => {

@@ -22,10 +22,10 @@ export class WarriorRecord {
         }
 
         this.name = data.name;
-        this.power = data.stats.power;
-        this.defense = data.stats.defense;
-        this.durability = data.stats.durability;
-        this.agility = data.stats.agility;
+        this.power = data.power;
+        this.defense = data.defense;
+        this.durability = data.durability;
+        this.agility = data.agility;
     }
 
     async insert(): Promise<string> {
