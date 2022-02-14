@@ -1,0 +1,39 @@
+<div>
+    <h1>Stwórz swojego wymarzonego wojownika!</h1>
+    <p>Pozostało punktów do rozdania: <span id="points-to-give">6</span></p>
+    <form>
+        <label>
+            Imię
+            <input id="name" name="name" type="text">
+        </label>
+        <br>
+        <label>
+            Siła
+            <input id="power" class="points" name="power" type="range" value="1" min="1" max="10">
+            <span id="power-value">1</span>
+        </label>
+        <br>
+        <label>
+            Obrona
+            <input id="defense" class="points" name="defense" type="range" value="1" min="1" max="10">
+            <span id="defense-value">1</span>
+        </label>
+        <br>
+        <label>
+            Wytrzymałość
+            <input id="durability" class="points" name="durability" type="range" value="1" min="1" max="10">
+            <span id="durability-value">1</span>
+        </label>
+        <br>
+        <label>
+            Zwinność
+            <input id="agility" class="points" name="agility" type="range" value="1" min="1" max="10">
+            <span id="agility-value">1</span>
+        </label>
+        <button id="submit-btn" disabled>Stwórz</button>
+    </form>
+    <p id="error-message"></p>
+    <button id="reset-points-btn">Zresetuj punkty</button>
+    {{> go-home}}
+</div>
+<script src="/js/form.js"></script>
