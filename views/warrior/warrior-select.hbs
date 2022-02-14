@@ -1,0 +1,26 @@
+<div>
+    {{#if warriors}}
+        <h1>Wybierz dwóch wojowników którzy stoczą epicką walkę na arenie</h1>
+        <form action="/warr">
+            <label>
+                Pierwszy wojownik:
+                <select name="warrior1">
+                    {{#each warriors}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <label>
+                Drugi Wojownik:
+                <select name="warrior2">
+                    {{#each warriors}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <button>ATAK!</button>
+        </form>
+    {{else}}
+        <h1>Nie masz żadnych wojowników lub masz tylko jednego. <a href="/warrior/form">Stwórz</a></h1>
+    {{/if}}
+</div>

@@ -2,6 +2,9 @@ import { v4 as uuid } from "uuid"
 import { WarriorData } from "../types/warrior";
 import { ValidationError } from "../utils/errors";
 import { pool } from "../utils/db";
+import {FieldPacket} from "mysql2";
+
+type WarriorRecordResult = [WarriorRecord[], FieldPacket[]];
 
 export class WarriorRecord {
     id: string;
@@ -42,5 +45,10 @@ export class WarriorRecord {
         });
 
         return this.id;
+    }
+
+    static async getAll(): Promise<WarriorRecord[]> {
+        const [data] = await pool.execute("SELECT * FROM `warrior`;") as WarriorRecordResult;
+        return data;
     }
 }

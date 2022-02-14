@@ -7,21 +7,21 @@ export const warriorRouter = Router();
 warriorRouter
 
     .post('/', async (req, res) => {
+        const data = req.body;
 
-        try {
-            const data = req.body;
+        const newWarrior = new WarriorRecord(data);
+        await newWarrior.insert();
 
-            const newWarrior = new WarriorRecord(data);
-            await newWarrior.insert();
+        res.json(req.body.name);
+    })
 
-            res.json(req.body.name);
-        } catch (err) {
-            res.render('error', {
-                message: err,
-            })
-        }
+    .get('/select', async (req, res) => {
+        const warriors = await WarriorRecord.getAll();
+        res.render('warrior/warrior-select',{
+            warriors: warriors.length > 1 ? warriors : false,
+        });
     })
 
     .get('/form', (req, res) => {
         res.render('warrior/warrior-form');
-    })
+    });

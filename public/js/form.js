@@ -13,13 +13,17 @@ formEl.addEventListener('submit', async (e) => {
         e.preventDefault();
         errorEl.textContent = '';
 
-        if (!nameInput.value) {
+        const name = nameInput.value;
+
+        if (!name) {
             errorEl.textContent = 'Bez imienia cię nie przepuścimy!';
-        } else if (nameInput.value.length < 3) {
+        } else if (name.length < 3) {
             errorEl.textContent = 'Imię wojownika musi być dłuższe niż 2 znaki';
+        } else if (name.length > 20) {
+            errorEl.textContent = 'Imię wojownika nie może być dłuższe niż 20 znaków';
         } else {
             const obj = {
-                name: nameInput.value,
+                name,
                 stats: {
                     power: +ranges[0].value,
                     defense: +ranges[1].value,
