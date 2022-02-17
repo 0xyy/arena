@@ -7,14 +7,14 @@ import { FieldPacket } from "mysql2";
 type WarriorRecordResult = [WarriorRecord[], FieldPacket[]];
 
 export class WarriorRecord {
-    id: string;
-    readonly name: string;
-    wins = 0;
-    fights = 0;
-    power: number;
-    defense: number;
-    durability: number;
-    agility: number;
+    public id?: string;
+    public readonly name: string;
+    public wins = 0;
+    public fights = 0;
+    public readonly power: number;
+    public readonly defense: number;
+    public readonly durability: number;
+    public readonly agility: number;
 
     constructor(data: WarriorData) {
         this.name = data.name;
@@ -74,5 +74,13 @@ export class WarriorRecord {
         }) as WarriorRecordResult;
 
         return data ? new WarriorRecord(data) : null;
+    }
+
+    static async listTop(topCount: number): Promise<WarriorRecord[]> {
+        const [data] = await pool.execute("SELECT * FROM `warrior` ORDER BY `wins` DESC LIMIT :topCount;", {
+            topCount,
+        }) as WarriorRecordResult;
+
+        return data;
     }
 }

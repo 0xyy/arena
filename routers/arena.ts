@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ValidationError } from "../utils/errors";
 import { WarriorRecord } from "../records/warrior.record";
+import { Arena } from "../lib/arena";
 
 export const arenaRouter = Router();
 
@@ -19,9 +20,12 @@ arenaRouter
         const warrior1 = await WarriorRecord.getOne(warrior1Id);
         const warrior2 = await WarriorRecord.getOne(warrior2Id);
 
-        if (!warrior1 || !warrior2) throw new ValidationError('Jeden z wojowników się zgubił podczas drogi na arenę.');
+        if (!warrior1 || !warrior2) {
+            throw new ValidationError('Jeden z wojowników się zgubił podczas drogi na arenę.');
+        }
 
-
+        const arena = new Arena(warrior1, warrior2);
+        arena.init();
 
         res.render('arena/arena', {
             // log walki
