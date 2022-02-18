@@ -5,6 +5,7 @@
             <label>
                 Pierwszy wojownik:
                 <select name="warrior1">
+                    <option disabled selected value> -- wybierz wojownika -- </option>
                     {{#each warriors}}
                         <option value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
@@ -13,6 +14,7 @@
             <label>
                 Drugi Wojownik:
                 <select name="warrior2">
+                    <option disabled selected value> -- wybierz wojownika -- </option>
                     {{#each warriors}}
                         <option value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
@@ -20,7 +22,9 @@
             </label>
             <button>ATAK!</button>
         </form>
+        {{> go-home}}
     {{else}}
         <h1>Nie masz żadnych wojowników lub masz tylko jednego. <a href="/warrior/form">Stwórz</a></h1>
+        {{> go-home}}
     {{/if}}
 </div>

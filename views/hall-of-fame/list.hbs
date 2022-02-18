@@ -1,0 +1,15 @@
+<div>
+    <h1>Sala sław</h1>
+    <p>Topka najlepszych wojowników na arenie w METROPOLIS</p>
+    {{#if list}}
+        <ol>
+            {{#each list}}
+                <li>{{this.name}}</li>
+            {{/each}}
+        </ol>
+        {{> go-home}}
+    {{else}}
+        <h1>Przepraszam ale masz za mało wojowników żeby sala sław działała. Potrzebujesz jeszcze jednego <a href="/warrior/form">Stwórz</a></h1>
+    {{> go-home}}
+    {{/if}}
+</div>

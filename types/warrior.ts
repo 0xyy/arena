@@ -6,4 +6,4 @@ export interface WarriorData {
     agility: number,
 }
 
-export type WarriorDataStats = Omit<WarriorData, 'name'>;
+// export type WarriorDataStats = Omit<WarriorData, 'name'>;

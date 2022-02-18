@@ -25,7 +25,12 @@ arenaRouter
         }
 
         const arena = new Arena(warrior1, warrior2);
-        arena.init();
+        let winner = null;
+
+        do {
+            console.log('info');
+            winner = arena.fight();
+        } while (winner === null)
 
         res.render('arena/arena', {
             // log walki
