@@ -35,7 +35,9 @@ warriorRouter
         });
         await newWarrior.insert();
 
-        res.json(name);
+        res.render('warrior/warrior-created', {
+            newWarrior,
+        });
     })
 
     .get('/select', async (req, res) => {

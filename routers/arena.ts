@@ -25,15 +25,19 @@ arenaRouter
         }
 
         const arena = new Arena(warrior1, warrior2);
-        let winner = null;
+        const {log, winner} = arena.fight();
 
-        do {
-            console.log('info');
-            winner = arena.fight();
-        } while (winner === null)
+        warrior1.fights++;
+        warrior2.fights++;
+
+        winner.wins++;
+
+        await warrior1.update();
+        await warrior2.update();
+        await winner.update();
 
         res.render('arena/arena', {
-            // log walki
+            log,
         });
     })
 

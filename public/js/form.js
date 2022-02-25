@@ -2,9 +2,6 @@ const ranges = [...document.querySelectorAll('.points')];
 const totalPointsEl = document.getElementById('points-to-give');
 const resetPointsBtn = document.getElementById('reset-points-btn');
 const submitBtn = document.getElementById('submit-btn');
-const nameInput = document.getElementById('name');
-const errorEl = document.getElementById('error-message');
-const formEl = document.querySelector('form');
 
 const MAX_POINTS = 10;
 
@@ -82,18 +79,14 @@ ranges.forEach(range => {
         totalPointsEl.innerText = MAX_POINTS - totalPoints + '';
         if (MAX_POINTS - totalPoints === 0) {
             totalPointsEl.innerText = '0';
-            ranges.forEach(r => r.classList.add('disabled'));
             activateSubmitBtn(false);
         } else if (MAX_POINTS - totalPoints < 0) {
             activateSubmitBtn(true);
             totalPointsEl.innerText = `Limit 10 punktów! Ponad ${Math.abs(MAX_POINTS - totalPoints)}`;
+        } else {
+            activateSubmitBtn(true);
         }
     });
 });
 
-resetPointsBtn.addEventListener('click', () => {
-    ranges.forEach(r => {
-        r.classList.remove('disabled');
-        r.value = '1';
-    });
-});
+resetPointsBtn.addEventListener('click', () => window.location.reload(true));

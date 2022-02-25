@@ -2,11 +2,24 @@
     <h1>Sala sław</h1>
     <p>Topka najlepszych wojowników na arenie w METROPOLIS</p>
     {{#if list}}
-        <ol>
-            {{#each list}}
-                <li>{{this.name}}</li>
-            {{/each}}
-        </ol>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Imię</th>
+                    <th>Ilość zwycięstw</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each list}}
+                    <tr>
+                        <th>{{this.place}}</th>
+                        <th>{{this.warrior.name}}</th>
+                        <th>{{this.warrior.wins}}</th>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
         {{> go-home}}
     {{else}}
         <h1>Przepraszam ale masz za mało wojowników żeby sala sław działała. Potrzebujesz jeszcze jednego <a href="/warrior/form">Stwórz</a></h1>

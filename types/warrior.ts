@@ -1,9 +1,8 @@
-export interface WarriorData {
-    name: string,
-    power: number,
-    defense: number,
-    durability: number,
-    agility: number,
+import { WarriorRecord } from "../records/warrior.record";
+
+export interface WarriorObj {
+    hp: number,
+    dp: number,
+    warrior: WarriorRecord,
 }
 
-// export type WarriorDataStats = Omit<WarriorData, 'name'>;
