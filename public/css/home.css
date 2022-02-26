@@ -1,0 +1,47 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.home__title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5rem;
+    text-align: center;
+    display: inline-block;
+    z-index: 1;
+}
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+    z-index: 1;
+}
+
+.home__arena, .home__create,.home__author, .home__hall-of-fame {
+    font-size: 2rem;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    line-height: 40px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 3px 15px;
+    margin: 5px;
+    transition: .3s;
+}
+
+a:hover {
+    color: #70e000;
+    border-color: #70e000;
+}
